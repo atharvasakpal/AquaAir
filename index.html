@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href = "style.css"/>
+<title>my webpage</title>
+</head>
+<body>
+    <h1>Welcome to Air and Water Quality Monitoring</h1>
+    <form action="/submit_location" method="post">
+        <label for="location">Enter Location:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit">Get Quality Data</button>
+    </form>
+
+    <h2>Air Quality Information</h2>
+    <p>Air Quality Index (AQI): <span id="aqi">-</span></p>
+    <p>Air Quality Level: <span id="aqi_level">-</span></p>
+</body>
+</html>

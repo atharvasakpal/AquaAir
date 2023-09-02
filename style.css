@@ -1,0 +1,67 @@
+
+/* Apply a blue background to the entire page */
+body {
+    background-color: #3498db;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Use a common sans-serif font */
+    text-align: center; /* Center-align text content */
+}
+
+/* Center the main content vertically */
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the form */
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+}
+
+/* Style form elements */
+label {
+    display: block; /* Place each label on a new line */
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #3498db; /* Blue button color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Style headings and spans */
+h1, h2 {
+    color: #fff; /* White text color for headings */
+    font-family: 'Your Custom Font', Arial, sans-serif; /* Replace 'Your Custom Font' with your chosen font */
+}
+
+/* Style AQI and AQI level spans */
+#aqi, #aqi_level {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333; /* Dark text color for AQI and AQI level */
+}
+
