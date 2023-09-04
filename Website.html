@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location to Latitude and Longitude</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Location to Latitude and Longitude</h1>
+    <p>Enter a location:</p>
+    <input type="text" id="locationInput" placeholder="Enter a location">
+    <button onclick="getLatLong()">Get Latitude and Longitude</button>
+    <p id="result"></p>
+
+    <script>
+        function getLatLong() {
+            const location = document.getElementById("locationInput").value;
+            const apiKey = '5c851b011e0f071f8e0496731dd999e3';
+
+            // Construct the OpenWeatherMap API URL
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod === 200) {
+                        const lat = data.coord.lat;
+                        const lon = data.coord.lon;
+                        document.getElementById("result").textContent = `Latitude: ${lat}, Longitude: ${lon}`;
+                    } else {
+                        document.getElementById("result").textContent = "Location not found.";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>
