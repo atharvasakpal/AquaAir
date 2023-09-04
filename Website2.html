@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air and Water Quality</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Air and Water Quality</h1>
+    <p>Enter latitude and longitude:</p>
+    <input type="text" id="latInput" placeholder="Latitude">
+    <input type="text" id="lonInput" placeholder="Longitude">
+    <button onclick="getAirQuality()">Get Air Quality</button>
+    <p id="airQualityResult"></p>
+    
+    <script>
+        function getAirQuality() {
+            const lat = document.getElementById("latInput").value;
+            const lon = document.getElementById("lonInput").value;
+            const airVisualApiKey = '3a7d2c85-6a18-4fd6-8c5c-9a00df1004d5';
+
+            // Construct the AirVisual API URL
+            const apiUrl = `https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${airVisualApiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const airQuality = data.data.current.pollution.aqius;
+                        document.getElementById("airQualityResult").textContent = `Air Quality Index: ${airQuality}`;
+                    } else {
+                        document.getElementById("airQualityResult").textContent = "Unable to retrieve air quality data.";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>
