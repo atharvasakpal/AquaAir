@@ -5,3 +5,8 @@ The Streamlit Webapp structure
 2- Homepage (contains text data for the home page of MainAPP)
 3- AQI_prediction (Has functions defined which are called in the MainAPP.py file)
 4- About section is already written in MainAPP.py
+
+KEEP ALL 3 FILES IN THE SAME FOLDER !!
+
+Thanks,
+AtharvaSakpal
