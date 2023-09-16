@@ -7,6 +7,8 @@ The Streamlit Webapp structure
 4- About section is already written in MainAPP.py
 5- WQI section is empty!! require jupyter notebook and ML model for the same !!
 
+CSS UPDATES on the files are appreciated. DO NOT directly add the style , clone the .py file FIRST.
+
 KEEP ALL 3 FILES IN THE SAME FOLDER !!
 
 Thanks,
