@@ -11,5 +11,11 @@ CSS UPDATES on the files are appreciated. DO NOT directly add the style , clone 
 
 KEEP ALL 3 FILES IN THE SAME FOLDER !!
 
+If streamlit is not able to run on VSCode showing path issues 
+use this command on terminal
+
+python -m streamlit run MainAPP.py
+
+this will definitely work 
 Thanks,
 AtharvaSakpal
