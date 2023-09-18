@@ -16,10 +16,10 @@
                 <span class="ml-3 text-xl">AIR AND WATER QUALITY INDEX</span>
             </a>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                <a class="mr-5 hover:text-gray-900">AQI</a>
-                <a class="mr-5 hover:text-gray-900">WQI</a>
+                <a class="mr-5 hover:text-gray-900" onclick="showOnMap('AQI')">AQI</a>
+                <a class="mr-5 hover:text-gray-900" onclick="showOnMap('WQI')">WQI</a>
             </nav>
-            <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+            <button class="inline-flex items-c​​enter bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
@@ -29,7 +29,7 @@
 
     <section class="text-gray-600 body-font relative">
         <div class="absolute inset-0 bg-gray-300">
-            <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Mumbai&ie=UTF8&t=&z=14&iwloc=B&output=embed"></iframe>
+            <iframe id="mapIframe" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Mumbai&ie=UTF8&t=&z=14&iwloc=B&output=embed"></iframe>
         </div>
         
         <div class="container px-5 py-24 mx-auto flex">
@@ -38,14 +38,14 @@
                 <p class="leading-relaxed mb-5 text-gray-600">Air Quality index and Water Quality Index</p>
                 <div class="relative mb-4">
                     <label for="location" class="leading-7 text-sm text-gray-600">Enter Your Location</label>
-                    <input type="location" id="location" name="Location" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <input type="location" id="locationInput" name="Location" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
                 <div class="relative mb-4">
                     <label for="Coordinates" class="leading-7 text-sm text-gray-600">Select AQI/WQI</label>
                 </div>
                 <div class="flex space-x-4"> <!-- Use flex and space-x for spacing between buttons -->
-                    <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">AQI</button>
-                    <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">WQI</button>
+                    <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="showOnMap('AQI')">AQI</button>
+                    <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="showOnMap('WQI')">WQI</button>
                 </div>
                 <p class="text-xs text-gray-500 mt-3">Please Enter Valid Locations</p>
             </div>
@@ -89,5 +89,21 @@
           </span>
         </div>
       </footer>
+
+      <script>
+        function showOnMap(type) {
+            const locationInput = document.getElementById("locationInput").value;
+            const mapIframe = document.getElementById("mapIframe");
+            const locationEncoded = encodeURIComponent(locationInput);
+            if (type === "AQI" || type === "WQI") {
+                mapIframe.src = `https://maps.google.com/maps?width=100%&height=600&hl=en&q=${locationEncoded}&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
+            }
+        }
+
+        // Set default location to Mumbai when the website opens
+        window.onload = function() {
+            showOnMap('Mumbai');
+        };
+      </script>
 </body>
 </html>
