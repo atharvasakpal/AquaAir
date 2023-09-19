@@ -10,7 +10,7 @@ The Streamlit Webapp structure
 
 CSS UPDATES on the files are appreciated. DO NOT directly add the style , clone the .py file FIRST.
 
-KEEP ALL 3 FILES IN THE SAME FOLDER !!
+KEEP ALL FILES IN THE SAME FOLDER !!
 
 If streamlit is not able to run on VSCode showing path issues 
 use this command on terminal
