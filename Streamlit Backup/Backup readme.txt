@@ -5,7 +5,8 @@ The Streamlit Webapp structure
 2- Homepage (contains text data for the home page of MainAPP)
 3- AQI_prediction (Has functions defined which are called in the MainAPP.py file)
 4- About section is already written in MainAPP.py
-5- WQI section is empty!! require jupyter notebook and ML model for the same !!
+5- WQI section is updated!!
+6- also keep the water_potability.csv in the same folder
 
 CSS UPDATES on the files are appreciated. DO NOT directly add the style , clone the .py file FIRST.
 
