@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (your existing head content) ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -9,7 +8,6 @@
     <title>AQI</title>
 </head>
 <body class="flex flex-col min-h-screen">
-    <!-- ... (your existing header and other content) ... -->
     <header class="text-violet-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-blue-500 mb-4 md:mb-0">
@@ -40,7 +38,7 @@
     </section>
     <!-- Full-length footer -->
     <footer class="text-gray-600 body-font py-4 mt-auto">
-        <div class="container px-5 mx-auto flex items-center sm:flex-row flex-col">
+        <div class="container px-5 mx-auto flex items-c{{$location}}enter sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                 <i class="far fa-thumbs-up text-xl"></i> <!-- Replace this line with the FontAwesome icon -->
                 <span class="ml-3 text-xl">Was this Helpful?</span>
@@ -64,10 +62,9 @@
         {{fig|safe}}
     </div>
     <script>
-        function showOnMap(type) {
-            const locationInput = document.getElementById("locationInput").value;
+        function showOnMap(type, location) {
+            const locationEncoded = encodeURIComponent(location);
             const mapIframe = document.getElementById("mapIframe");
-            const locationEncoded = encodeURIComponent(locationInput);
             if (type === "AQI" || type === "WQI") {
                 mapIframe.src = `https://maps.google.com/maps?width=100%&height=100%&hl=en&q=${locationEncoded}&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
             }
@@ -75,7 +72,7 @@
 
         // Set default location to Mumbai when the website opens
         window.onload = function () {
-            showOnMap('Mumbai');
+            showOnMap('Mumbai', '{{ location }}');
         };
     </script>
 </body>
