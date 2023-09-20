@@ -46,19 +46,26 @@
         </div>
     </footer>
     <div class="container h-48">
+        <p>The AQI of a place is determined by the concentrations of many contaminants of air, the important ones being particulate matter of 2.5 micrometer dia (pm2.5), particulate matter of 10 micrometer dia (pm10), so2, no2, etc. The bar graphs showcases an interactive plot of the last 30 day average of all these contaminants and compares then with the present day concentrations fetched from an API</p>
         <h1>Location Entered : {{location}} </h1>
         <h1>AQI: {{AQI}} </h1>
     </div>
     <div class="container h-96">
+        <p>The pie chart shows an interactive side by side plots of mean values  and the present day concentration of the contaminants</p>
+
         {{figBar|safe}}
     </div>
     <div class="container h-96">
+        <p>The first line chart showcases the Year by Year  Historical trend of these contaminants, where one could predict a pattern/ trend in concentration rise and fall. The plot is useful to compare the concentration's behaviour thoughout a time period</p>
         {{fig1|safe}}
     </div>
     <div class="container h-96">
-        {{figPie|safe}}
+        <p>by analyzing the past trends, future predictions can be made by feeding the historical data into a machine learning algorithm</p>
+
+       {{figPie|safe}}
     </div>
     <div class="container h-96">
+      <p>the last plot showcases the future predictions of the above mentioned contaminants based on their historical data with 75-80 % accuracy</p>
         {{fig|safe}}
     </div>
     <script>
