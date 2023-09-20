@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>HomePage</title>
+  <style>
+    /* Add custom font and style for the header */
+    body {
+      font-family: Arial, sans-serif; /* Choose your desired font */
+    }
+
+    .header {
+      text-align: center;
+      background-color: #E0E0E0; /* Light grey background color */
+      color: black; /* Black text color */
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold; /* Make the text bold */
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    AquaAir - AQI & WQI Monitoring and Prediction
+  </div>
+
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+        <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">To Find Air and Water Quality Index</h1>
+        <div class="button-container">
+          <form action="your_aqi_post_endpoint.php" method="post">
+            <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0">AQI</button>
+          </form>
+          <form action="your_wqi_post_endpoint.php" method="post">
+            <button type="submit" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg mt-4 sm:mt-0">WQI</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
