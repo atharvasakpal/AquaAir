@@ -6,7 +6,7 @@ Steps to run the server:
 1. Enter the working directory for the django folder. In this case it is the src folder.
 2. While inside the src folder, open the terminal and type the following command:
  ```Terminal
- $ python3 manage.py runserver
+ $ python .\manage.py runserver
 ```
 3. This command should return a link for the model which is running on a localhost.
 4. To get the AQI(Air Qualilty Index) of a place, click on the AQI button which shall redirect you to a site where you must enter the name of the location you want to inspect the Air Quality of.
