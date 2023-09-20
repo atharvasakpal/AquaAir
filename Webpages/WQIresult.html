@@ -1,1 +1,20 @@
-{{ str|safe }}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Center the container horizontally and vertically */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the page takes up the full viewport height */
+            margin: 0; /* Remove default margin for the body */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {{ str|safe }}
+    </div>
+</body>
+</html>
