@@ -19,9 +19,15 @@ from django.urls import path
 from django.urls import path
 from pages.views import home_view
 from pages.views import AQI_view
+from pages.views import WQI_view
+from pages.views import WQI
+from pages.views import AQI
 
 urlpatterns = [
     path('',home_view, name='home'),
-    path('location', AQI_view, name='AQI'),
+    path('AQI', AQI , name='AQI'),
+    path('Input_AQI', AQI_view, name='AQI_Info'),
+    path('Input_WQI', WQI_view, name='WQI'),
+    path('WQI', WQI, name='WQI_Info'),
     path('admin/', admin.site.urls),
 ]

@@ -12,10 +12,23 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import xgboost as xgb
 import base64
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+from sklearn.preprocessing import StandardScaler
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 
 # Create your views here.
 def home_view(request,*args, **kwargs):
-    return render(request, "homepage.html",{})
+    return render(request, "Homepage.html",{})
+def AQI(request,*args, **kwargs):
+    return render(request, "AQI.html",{})
+
+def WQI(request,*args, **kwargs):
+    return render(request, "WQI.html", {})
+
 def AQI_view(request,*args,**kwargs):
     location = request.GET['Location']
     apikey = "5c851b011e0f071f8e0496731dd999e3";
@@ -159,4 +172,64 @@ def AQI_view(request,*args,**kwargs):
     #fig.show()
 
     context= {"figBar": figBarhtml, "fig1": fig1, "figPie": figPiehtml,"fig":fightml, "location": location,"AQI": aqi}
-    return render(request, 'webpage2.html', context)
+    return render(request, 'AQIresult.html', context)
+
+def WQI_view(request,*args,**kwargs):
+
+    data = pd.read_csv('water_potability.csv')
+    df = pd.DataFrame(data)
+
+    data['ph'].fillna(data['ph'].mean(), inplace=True)
+    data['Hardness'].fillna(data['Hardness'].mean(), inplace=True)
+    data['Solids'].fillna(data['Solids'].mean(), inplace=True)
+    data['Sulfate'].fillna(data['Sulfate'].mean(), inplace=True)
+    data['Trihalomethanes'].fillna(data['Trihalomethanes'].mean(), inplace=True)
+    data['Chloramines'].fillna(data['Chloramines'].mean(), inplace=True)
+    data['Conductivity'].fillna(data['Conductivity'].mean(), inplace=True)
+    data['Organic_carbon'].fillna(data['Organic_carbon'].mean(), inplace=True)
+    data['Turbidity'].fillna(data['Turbidity'].mean(), inplace=True)
+
+    X = df.drop(columns=['Potability'])
+    y = df['Potability']
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    model = LogisticRegression(max_iter=1000)
+    model.fit(X_train, y_train)
+
+    random_forest = RandomForestClassifier(n_estimators=100, random_state=42)
+    random_forest.fit(X_train, y_train)
+
+    y_pred_rf = random_forest.predict(X_test)
+
+
+
+    Sulfate = request.GET['Sulphur']
+    ph = request.GET['pH']
+    Solids = request.GET['solids']
+    Hardness = request.GET['hardness']
+    Trihalomethanes = request.GET['trihalomethanes']
+    Chloramines = request.GET["Chloramines"]
+    Conductivity = request.GET["conductivity"]
+    Organic_carbon = request.GET["organiccarbon"]
+    Turbidity = request.GET["turbidity"]
+
+    input_features = np.array(
+        [[Sulfate, ph, Solids, Hardness, Trihalomethanes, Chloramines, Conductivity, Organic_carbon, Turbidity]])
+
+    prediction = random_forest.predict(input_features)
+    if (prediction[0] == 0):
+        str = "<h1>Water is not potable</h1>"
+    else:
+        str = "<h1>Water is potable</h1>"
+
+    return render(request, 'WQIresult.html', {'str': str})
+
+
+
+
+
