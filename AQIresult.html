@@ -79,17 +79,16 @@
         {{fig|safe}}
     </div>
     <script>
-        function showOnMap(type, location) {
+        function showOnMap(location) {
             const locationEncoded = encodeURIComponent(location);
             const mapIframe = document.getElementById("mapIframe");
-            if (type === "AQI" || type === "WQI") {
-                mapIframe.src = `https://maps.google.com/maps?width=100%&height=100%&hl=en&q=${locationEncoded}&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
-            }
+            mapIframe.src = `https://maps.google.com/maps?width=100%&height=100%&hl=en&q=${locationEncoded}&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
         }
-
+    
         // Set default location to Mumbai when the website opens
         window.onload = function () {
-            showOnMap('Mumbai', '{{ location }}');
+            const initialLocation = "{{ location }}"; // Replace "{{ location }}" with the actual location you want to display.
+            showOnMap(initialLocation);
         };
     </script>
 </body>
