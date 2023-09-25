@@ -78,20 +78,20 @@ def AQI_view(request,*args,**kwargs):
         rows=2, cols=2,
         subplot_titles=("pm2.5", "pm10", "no2", 'so2'))
 
-    figBar.add_trace(go.Bar(y=[healthy_pm2_5, daily_data.pm2_5.mean()], x=['Healthy', 'Measured']),
+    figBar.add_trace(go.Bar(y=[daily_data.pm2_5[-30:-1].mean(), daily_data.pm2_5[-1]], x=['Average', 'Previous Day']),
                      row=1, col=1)
 
-    figBar.add_trace(go.Bar(y=[healthy_pm10, daily_data.pm10.mean()], x=['Healthy', 'Measured']),
+    figBar.add_trace(go.Bar(y=[daily_data.pm10[-30:-1].mean(), daily_data.pm10[-1]], x=['Average', 'Previous Day']),
                      row=1, col=2)
 
-    figBar.add_trace(go.Bar(y=[healthy_no2, daily_data.no2.mean()], x=['Healthy', 'Measured']),
+    figBar.add_trace(go.Bar(y=[daily_data.no2[-30:-1].mean(), daily_data.no2[-1]], x=['Average', 'Previous Day']),
                      row=2, col=1)
 
-    figBar.add_trace(go.Bar(y=[healthy_so2, daily_data.so2.mean()], x=['Healthy', 'Measured']),
+    figBar.add_trace(go.Bar(y=[daily_data.so2[-30:-1].mean(), daily_data.so2[-1]], x=['Average', 'Previous Day']),
                      row=2, col=2)
 
     figBar.update_layout(height=500, width=700,
-                         title_text="Healthy range vs Measured Values")
+                         title_text="30 Day Mean vs Previous Day Value")
 
     #figBar.show()
     figBarhtml = figBar.to_html()
@@ -111,19 +111,18 @@ def AQI_view(request,*args,**kwargs):
 
     figPie = make_subplots(
         rows=1, cols=2, specs=[[{"type": "pie"}, {"type": "pie"}]],
-        subplot_titles=("Healthy", "Measured"))
+        subplot_titles=("Average", "Measured"))
 
-    figPie.add_trace(
-        go.Pie(values=[healthy_pm2_5, healthy_pm10, healthy_pm2_5, healthy_no2, healthy_so2], labels=labels,
-               domain=dict(x=[0, 0.5])),
-        row=1, col=1)
+    figPie.add_trace(go.Pie(
+        values=[daily_data.pm2_5[-30:-1].mean(), daily_data.pm10[-30:-1].mean(), daily_data.no2[-30:-1].mean(),
+                daily_data.so2[-30:-1].mean()], labels=labels, domain=dict(x=[0, 0.5])),
+                     row=1, col=1)
 
-    figPie.add_trace(
-        go.Pie(values=[daily_data.pm2_5.mean(), daily_data.pm10.mean(), daily_data.no2.mean(), daily_data.so2.mean()],
-               labels=labels, domain=dict(x=[0.5, 1])),
-        row=1, col=2)
+    figPie.add_trace(go.Pie(values=[daily_data.pm2_5[-1], daily_data.pm10[-1], daily_data.no2[-1], daily_data.so2[-1]],
+                            labels=labels, domain=dict(x=[0.5, 1])),
+                     row=1, col=2)
 
-    figPie.update_layout(title_text="Healthy vs Measured Composition")
+    figPie.update_layout(title_text="30 Day Mean vs Previous Day")
     figPiehtml = figPie.to_html()
     #figPie.show()
 
