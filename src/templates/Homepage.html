@@ -10,6 +10,16 @@
     /* Add custom font and style for the header */
     body {
       font-family: Arial, sans-serif; /* Choose your desired font */
+      margin: 0; /* Remove default margin to ensure content fills the viewport */
+      padding: 0; /* Remove default padding */
+      background-color: transparent;
+      background-image: url('GreatHorizon.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure the content occupies at least the full viewport height */
     }
 
     .header {
@@ -17,7 +27,7 @@
       background-color: #E0E0E0; /* Light grey background color */
       color: black; /* Black text color */
       padding: 20px;
-      font-size: 24px;
+      font-size: 28px; /* Increase the font size */
       font-weight: bold; /* Make the text bold */
     }
 
@@ -26,7 +36,24 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 20px; 
+      gap: 10px; /* Reduce the gap between items */
+    }
+
+    /* Increase the font size of buttons */
+    .button-container button {
+      font-size: 30px; /* Increase the font size */
+      margin: 5px;
+    }
+
+    /* Footer styles */
+    .footer {
+      text-align: center;
+      background-color: #E0E0E0; /* Light grey background color */
+      color: black; /* Black text color */
+      padding: 20px;
+      font-size: 16px;
+      font-weight: bold; /* Make the text bold */
+      margin-top: auto; /* Push the footer to the bottom */
     }
   </style>
 </head>
@@ -39,17 +66,22 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-        <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">To Find Air and Water Quality Index</h1>
+        <h1 class="flex-grow sm:pr-16 text-3xl font-medium title-font text-white">To Find Air and Water Quality Index</h1>
         <div class="button-container">
           <form action="AQI">
-            <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0">AQI</button>
+            <button type="submit" class="text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-xl mt-10 sm:mt-0">AQI</button>
           </form>
           <form action="WQI">
-            <button type="submit" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg mt-4 sm:mt-0">WQI</button>
+            <button type="submit" class="text-white bg-green-500 border-0 py-3 px-8 focus:outline-none hover:bg-green-600 rounded text-xl mt-4 sm:mt-0">WQI</button>
           </form>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Footer Section -->
+  <div class="footer">
+   
+  </div>
 </body>
 </html>
