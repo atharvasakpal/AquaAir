@@ -9,8 +9,8 @@ Steps to run the server:
  $ python .\manage.py runserver
 ```
 3. This command should return a link for the model which is running on a localhost.
-4. To get the AQI(Air Qualilty Index) of a place, click on the AQI button which shall redirect you to a site where you must enter the name of the location you want to inspect the Air Quality of.
-5. To get the WQI(Air Qualilty Index) of a place, click on the WQI button which shall redirect you to a site where you must enter the composition of water to assess its potability.
+4. To get the AQI(Air Quality Index) of a place, click on the AQI button which shall redirect you to a site where you must enter the name of the location you want to inspect the Air Quality of.
+5. To get the WQI(Water Quality Index) of a place, click on the WQI button which shall redirect you to a site where you must enter the composition of water to assess its potability.
 
 In case some errors occur due to missing dependencies, please install them on your local device using the pip install command.
 
