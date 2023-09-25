@@ -57,6 +57,14 @@
           text-align: center;
           list-style-position: inside;
         }
+        
+.center-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add any other necessary styling */
+}
+
     </style>
 
     <div class="container h-12">
@@ -67,16 +75,17 @@
         </ul>
 
     </div>
-    <div class="container h-100 text-center"> <!-- Add 'text-center' class to center the content -->
-        <ul class="list-disc">
-            <li>The bar graphs showcase an interactive plot of the last 30-day average of all these contaminants</li>
-            <li>Compares them with the present-day concentrations fetched from an API</li>
+    <div class="container h-100">
+        <ul class="text-center list-disc">
+            <li>The bar graphs showcase an interactive plot of the last 30 day average of all these contaminants</li>
+            <li>Compares them with the present day concentrations fetched from an API</li>
         </ul>
     
-        <div class="d-flex justify-content-center"> <!-- Use flexbox to center the {{figBar|safe}} object -->
+        <div class="center-graph"> <!-- Apply the CSS class to center the graph -->
             {{figBar|safe}}
         </div>
     </div>
+    
     
     
     <div class="container h-100">
