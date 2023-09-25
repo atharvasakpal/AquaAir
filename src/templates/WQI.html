@@ -39,14 +39,14 @@
                 <!-- Location input form with action attribute -->
                 <form action = "Input_WQI">
                     <div class="relative mb-4">
-                        <label for="sulphur" class="leading-7 text-sm text-gray-600">Enter Sulphur Level</label>
+                        <label for="sulfate" class="leading-7 text-sm text-gray-600">Enter Sulfate (mg/L)</label>
                         <input
                             type="number"
-                            id="sulphur"
-                            name="Sulphur"
+                            id="sulfate"
+                            name="Sulfate"
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         >
-                    </div>
+                    </div>                    
                     <div class="relative mb-4">
                         <label for="pH" class="leading-7 text-sm text-gray-600">Enter pH</label>
                         <input
@@ -57,7 +57,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        <label for="Solids" class="leading-7 text-sm text-gray-600">Enter Solids content</label>
+                        <label for="solids" class="leading-7 text-sm text-gray-600">Enter Solids (mg/L)</label>
                         <input
                             type="number"
                             id="solids"
@@ -66,7 +66,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        <label for="hardness" class="leading-7 text-sm text-gray-600">Enter hardness</label>
+                        <label for="hardness" class="leading-7 text-sm text-gray-600">Enter Hardness (mg/L)</label>
                         <input
                             type="number"
                             id="hardness"
@@ -75,7 +75,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        <label for="trihalomethanes" class="leading-7 text-sm text-gray-600">Enter Trihalomethanes</label>
+                        <label for="trihalomethanes" class="leading-7 text-sm text-gray-600">Enter Trihalomethanes (mg/L)</label>
                         <input
                             type="number"
                             id="trihalomethanes"
@@ -84,7 +84,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        <label for="chloramines" class="leading-7 text-sm text-gray-600">Enter Chloramines</label>
+                        <label for="chloramines" class="leading-7 text-sm text-gray-600">Enter Chloramines (mg/L)</label>
                         <input
                             type="number"
                             id="chloramines"
@@ -93,7 +93,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        <label for="conductivity" class="leading-7 text-sm text-gray-600">Enter conductivity</label>
+                        <label for="conductivity" class="leading-7 text-sm text-gray-600">Enter conductivity (µS/cm)</label>
                         <input
                             type="number"
                             id="conductivity"
@@ -101,16 +101,19 @@
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         >
                     </div>
+                    
                     <div class="relative mb-4">
-                        <label for="organiccarbon" class="leading-7 text-sm text-gray-600">Enter organiccarbon</label>
+                        <label for="organiccarbon" class="leading-7 text-sm text-gray-600">Enter Organic Carbon (mg/L)</label>
                         <input
                             type="number"
                             id="organiccarbon"
                             name="organiccarbon"
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         >
-                    </div><div class="relative mb-4">
-                        <label for="turbidity" class="leading-7 text-sm text-gray-600">Enter turbidity</label>
+                    </div>
+                    
+                    <div class="relative mb-4">
+                        <label for="turbidity" class="leading-7 text-sm text-gray-600">Enter turbidity (NTU)</label>
                         <input
                             type="number"
                             id="turbidity"
@@ -118,6 +121,8 @@
                             class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         >
                     </div>
+                    
+                    
                     <!-- Add similar input fields for solids, hardness, trihalomethanes, chloramines, conductivity, organic carbon, and turbidity -->
                     <div class="flex space-x-4"> <!-- Use flex and space-x for spacing between buttons -->
                         <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="calculateWQI()">Calculate WQI</button>
