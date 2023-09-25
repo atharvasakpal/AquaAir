@@ -67,16 +67,17 @@
         </ul>
 
     </div>
-    <div class="container h-100">
-        <ul class="text-center list-disc">
-            <li>The bar graphs showcases an interactive plot of the last 30 day average of all these contaminants</li>
-            <li>Compares them with the present day concentrations fetched from an API</li>
+    <div class="container h-100 text-center"> <!-- Add 'text-center' class to center the content -->
+        <ul class="list-disc">
+            <li>The bar graphs showcase an interactive plot of the last 30-day average of all these contaminants</li>
+            <li>Compares them with the present-day concentrations fetched from an API</li>
         </ul>
     
-        <div class="text-center"> <!-- Add 'text-center' class to center the content -->
+        <div class="d-flex justify-content-center"> <!-- Use flexbox to center the {{figBar|safe}} object -->
             {{figBar|safe}}
         </div>
     </div>
+    
     
     <div class="container h-100">
 
